@@ -20,9 +20,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-     -  name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: ssaraah97/homeeork:latest
+      - name: Docker Image
+        run:  docker build -t ssaraah97/homeeork:stable .
+
+      - name:  Upload Image in docker
+        run:   docker push ssaraah97/homeeork:stable
     
